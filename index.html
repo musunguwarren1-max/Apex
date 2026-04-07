@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Apex Deals KE</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Deals | Premium Shop</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HEADER -->
+<div class="flash-bar">
+    ⚡ FLASH SALE ENDS IN: <span id="timer">00h 00m</span>
+</div>
+
 <header>
-  <h1>🔥 Apex Deals KE</h1>
-  <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
+    <h1>🔥 APEX DEALS KE</h1>
+    <input type="text" class="search-box" placeholder="Search 200+ top deals..." oninput="handleSearch(this.value)">
 </header>
 
-<!-- CATEGORIES -->
-<div id="categories">
-  <button onclick="filterCategory('All')">All</button>
-  <button onclick="filterCategory('Electronics')">Electronics</button>
-  <button onclick="filterCategory('Fashion')">Fashion</button>
-  <button onclick="filterCategory('Home')">Home</button>
+<div class="nav-cats">
+    <div class="cat-chip active" onclick="filterCat('All', this)">All</div>
+    <div class="cat-chip" onclick="filterCat('Electronics', this)">Electronics</div>
+    <div class="cat-chip" onclick="filterCat('Fashion', this)">Fashion</div>
+    <div class="cat-chip" onclick="filterCat('Home', this)">Home Decor</div>
 </div>
 
-<!-- PRODUCTS -->
 <div id="products"></div>
 
-<!-- CART BUTTON -->
-<div id="cartBtn" onclick="openCart()">
-  🛒 Cart (<span id="cartCount">0</span>)
+<div id="cart-trigger" onclick="openCart()">
+    🛒 Cart (<span id="cart-count">0</span>)
 </div>
 
-<!-- CART MODAL -->
 <div id="cartModal" class="modal">
-  <div class="modal-content">
-    <h2>Your Cart</h2>
-    <div id="cartItems"></div>
-    <h3 id="total"></h3>
-    <button onclick="checkout()">Checkout via WhatsApp</button>
-    <button onclick="closeCart()">Close</button>
-  </div>
+    <div class="modal-content">
+        <h2 style="margin-top:0">Order Summary</h2>
+        <div id="cart-list" style="margin-bottom:20px"></div>
+        
+        <div class="input-group">
+            <label>Your Name</label>
+            <input type="text" id="name" placeholder="John Doe">
+        </div>
+        <div class="input-group">
+            <label>Delivery Area / Shop Name</label>
+            <input type="text" id="loc" placeholder="Nairobi, Tom Mboya St.">
+        </div>
+
+        <h3 style="display:flex; justify-content:space-between">
+            <span>Total:</span>
+            <span>KSh <span id="total-amt">0</span></span>
+        </h3>
+        
+        <button class="whatsapp-btn" onclick="sendWhatsApp()">Complete via WhatsApp</button>
+    </div>
 </div>
 
 <script src="script.js"></script>

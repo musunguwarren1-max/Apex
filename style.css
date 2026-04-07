@@ -1,0 +1,30 @@
+body {
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  color: gold;
+}
+
+.product {
+  background: #1e293b;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+button {
+  background: gold;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
